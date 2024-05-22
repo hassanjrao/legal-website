@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
 class AboutUs extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'about_us';
 
     protected $guarded = [];
 
-    protected $appends=['video_url','image_url'];
+    protected $appends=['video_url','image_url','bg_image_url'];
 
     public function getVideoUrlAttribute()
     {
@@ -24,6 +25,11 @@ class AboutUs extends Model
     public function getImageUrlAttribute()
     {
         return Storage::url($this->image_path);
+    }
+
+    public function getBgImageUrlAttribute()
+    {
+        return Storage::url($this->bg_image_path);
     }
 
 

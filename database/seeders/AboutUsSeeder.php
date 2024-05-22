@@ -19,6 +19,7 @@ class AboutUsSeeder extends Seeder
         ],[
             'id'=>1,
             'image_path'=>'images/about.jpg',
+            'bg_image_path'=>'images/bg_1.jpg',
             'video_path'=>'https://vimeo.com/45830194',
             'title'=>'Welcome to Legalcare',
             'subtitle'=>'We Always Fight For Your Justice to Win!',

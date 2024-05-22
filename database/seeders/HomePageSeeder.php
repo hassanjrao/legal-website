@@ -22,7 +22,7 @@ class HomePageSeeder extends Seeder
             'hero_title' => 'Attorneys Fighting For Your Rights.',
             'hero_description' => 'We have help thousands of people to get relief from national wide fights wrongfull denials. Now they trusted legalcare attorneys',
             'hero_button_text' => 'Get Legal Advice',
-            'hero_bg_image_path' => 'images/hero-bg.jpg',
+            'hero_bg_image_path' => 'images/bg_1.jpg',
 
             'services_title' => 'Why Select Us?',
             'services_description' => 'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your.',
@@ -34,6 +34,11 @@ class HomePageSeeder extends Seeder
             'phone' => '+ 1235 2355 98',
             'email' => 'info@legal.com',
             'copy_right_text' => '© 2021 LegalCare. All Rights Reserved.',
+
+            'appointment_bg_image_path' => 'images/bg_2.jpg',
+            'appointment_title' => 'Free Consultation',
+            'appointment_subtitle'=> 'Booking an Appointment'
+
 
 
         ]);

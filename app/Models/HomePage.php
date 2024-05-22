@@ -14,10 +14,15 @@ class HomePage extends Model
 
     protected $guarded = [];
 
-    protected $appends=['hero_bg_image_url'];
+    protected $appends=['hero_bg_image_url','appointment_bg_image_url'];
 
     public function getHeroBgImageUrlAttribute()
     {
         return Storage::url($this->hero_bg_image_path);
+    }
+
+    public function getAppointmentBgImageUrlAttribute()
+    {
+        return Storage::url($this->appointment_bg_image_path);
     }
 }

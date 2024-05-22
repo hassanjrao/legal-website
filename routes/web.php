@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('about', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('attorneys', [HomeController::class, 'attorneys'])->name('attorneys');
+Route::get('practice-areas', [HomeController::class, 'practiceAreas'])->name('practice-areas');
+Route::get('case-studies', [HomeController::class, 'caseStudies'])->name('case-studies');
+Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::middleware(["auth"])->group(function () {
 

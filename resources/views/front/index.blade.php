@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center mt-4">
-                    <a href="case.html" class="btn btn-primary px-5">See All Successful Cases</a>
+                    <a href="{{ route('case-studies') }}" class="btn btn-primary px-5">See All Successful Cases</a>
                 </div>
             </div>
         </div>
@@ -96,35 +96,7 @@
     </section>
 
 
-    <section class="ftco-consultation ftco-section ftco-no-pt ftco-no-pb img"
-        style="background-image: url('{{ asset('front-assets/images/bg_2.jpg') }}');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row d-md-flex justify-content-end">
-                <div class="col-md-6 half p-3 py-5 pl-md-5 ftco-animate heading-section heading-section-white">
-                    <span class="subheading">Booking an Appointment</span>
-                    <h2 class="mb-4">Free Consultation</h2>
-                    <form action="#" class="consultation">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send message" class="btn btn-dark py-3 px-4">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-appointment :homePage="$homePage" />
 
 
     <section class="ftco-section testimony-section">
@@ -165,25 +137,5 @@
     </section>
 
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
-        <div class="container">
-            <div class="row d-flex justify-content-end">
-                <div class="col-md-8 py-4 px-md-4 bg-primary">
-                    <div class="row">
-                        <div class="col-md-6 ftco-animate d-flex align-items-center">
-                            <h2 class="mb-0" style="color:white; font-size: 24px;">Subcribe to our Newsletter</h2>
-                        </div>
-                        <div class="col-md-6 d-flex align-items-center">
-                            <form action="#" class="subscribe-form">
-                                <div class="form-group d-flex">
-                                    <input type="text" class="form-control" placeholder="Enter email address">
-                                    <input type="submit" value="Subscribe" class="submit px-3">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   <x-newsletter />
 @endsection
