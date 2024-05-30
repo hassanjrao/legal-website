@@ -15,21 +15,21 @@ class CaseStudySeeder extends Seeder
     public function run()
     {
         CaseStudy::create([
-            'image_path'=>'images/case1.jpg',
+            'image_path'=>'images/case-1.jpg',
             'title'=>'Fight Against Injustice',
             'subtitle'=>'Corporate Law',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'
         ]);
 
         CaseStudy::create([
-            'image_path'=>'images/case2.jpg',
+            'image_path'=>'images/case-2.jpg',
             'title'=>'Legal Consultation',
             'subtitle'=>'Criminal Law',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'
         ]);
 
         CaseStudy::create([
-            'image_path'=>'images/case3.jpg',
+            'image_path'=>'images/case-3.jpg',
             'title'=>'Accident Case',
             'subtitle'=>'Personal Injury',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'

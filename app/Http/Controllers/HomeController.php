@@ -78,4 +78,11 @@ class HomeController extends Controller
         $homePage=HomePage::first();
         return view('front.contact',compact('homePage'));
     }
+
+    public function caseStudy($id)
+    {
+        $caseStudy=CaseStudy::findorfail($id);
+        $homePage=HomePage::first();
+        return view('front.case-study',compact('caseStudy','homePage'));
+    }
 }

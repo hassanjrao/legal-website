@@ -1,5 +1,6 @@
 @extends('layouts.backend')
-@section('page-title', 'Products')
+
+@section('page-title', 'Services')
 @section('css_before')
     <!-- Page JS Plugins CSS -->
 
@@ -15,11 +16,11 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">
-                    Products
+                    Services
                 </h3>
 
 
-                <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add</a>
+                <a href="{{ route('admin.services.create') }}" class="btn btn-primary">Add</a>
 
 
 
@@ -33,10 +34,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Sizes</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Action</th>
@@ -47,32 +47,31 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($products as $ind => $product)
+                            @foreach ($services as $ind => $service)
                                 <tr>
 
                                     <td>{{ $ind + 1 }}</td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->productCategory->name
-                                     }}</td>
-                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $service->title }}</td>
+                                    <td>{{ $service->description }}</td>
                                     <td>
-                                        @foreach ($product->sizes as $size)
-                                            <span class="badge bg-primary">{{ $size }}</span>
-                                        @endforeach
+                                        <img src="{{ $service->image_url }}" alt="" style="width: 100px;">
                                     </td>
-                                    <td>{{ $product->created_at }}</td>
-                                    <td>{{ $product->updated_at }}</td>
+                                    <td>{{ $service->created_at }}</td>
+                                    <td>{{ $service->updated_at }}</td>
 
                                     <td>
-                                        <a href="{{ route('admin.products.edit', $product->id) }}"
-                                            class="btn btn-sm btn-alt-primary">Edit</a>
-
-                                        <form id="form-{{ $product->id }}"
-                                            action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                        <a href="{{ route('admin.services.edit', $service->id) }}" class="btn btn-sm btn-primary"
+                                            data-toggle="tooltip" title="Edit">
+                                            <i class="fa fa-pencil-alt"></i>
+                                        </a>
+                                        <form id="form-{{ $service->id }}"
+                                            action="{{ route('admin.services.destroy', $service->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <input type="button" onclick="confirmDelete({{ $product->id }})"
-                                                class="btn btn-sm btn-alt-danger" value="Delete">
+                                            <button type="button" onclick="confirmDelete({{ $service->id }})" class="btn btn-sm btn-danger" data-toggle="tooltip"
+                                                title="Delete">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
 
                                         </form>
                                     </td>

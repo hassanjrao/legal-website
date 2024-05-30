@@ -5,7 +5,7 @@
 <div class="col-lg-9 services-wrap px-4 pt-5">
     <div class="row pt-md-3">
         @foreach ($services as $service)
-            <div class="col-md-4 d-flex align-items-stretch">
+            <div class="col-md-4 d-flex align-items-stretch mb-4">
                 <div class="services text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
                         <img src="{{ $service->image_url }}" alt="" style="height: 50px; width:50px" class="image-fluid">

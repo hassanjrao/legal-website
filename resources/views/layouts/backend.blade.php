@@ -78,7 +78,7 @@
             'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
         -->
     <div id="page-container"
-        class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed main-content-narrow">
+        class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed ">
         <!-- Side Overlay-->
         <aside id="side-overlay" class="fs-sm">
             <!-- Side Header -->
@@ -172,7 +172,51 @@
                                 <span class="nav-main-link-name">Dashboard</span>
                             </a>
                         </li>
-                       
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/home-page') ? ' active' : '' }}"
+                                href="{{ route('admin.home-page.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Home Page</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/appointment') ? ' active' : '' }}"
+                                href="{{ route('admin.appointment.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Appointment</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/services/*') || request()->is('admin/services') ? ' active' : '' }}"
+                                href="{{ route('admin.services.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Services</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/about/*') || request()->is('admin/about') ? ' active' : '' }}"
+                                href="{{ route('admin.about.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">About</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/about-tabs/*') || request()->is('admin/about-tabs') ? ' active' : '' }}"
+                                href="{{ route('admin.about-tabs.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">About Tabs</span>
+                            </a>
+                        </li>
+
+
+
 
                     </ul>
                 </div>

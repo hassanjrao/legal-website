@@ -15,19 +15,19 @@ class ServicesSeeder extends Seeder
     public function run()
     {
         Service::create([
-            'image_path'=>'images/service1.jpg',
+            'image_path'=>'images/service1.png',
             'title'=>'Fight Against Injustice',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'
         ]);
 
         Service::create([
-            'image_path'=>'images/service2.jpg',
+            'image_path'=>'images/service1.png',
             'title'=>'Legal Consultation',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'
         ]);
 
         Service::create([
-            'image_path'=>'images/service3.jpg',
+            'image_path'=>'images/service1.png',
             'title'=>'Legal Consultation',
             'description'=>'Seeking justice in the world is a sed significant emotional and investment when we follow this call.'
         ]);
