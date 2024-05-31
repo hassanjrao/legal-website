@@ -14,9 +14,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.png') }}">
-    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
+    <link rel="shortcut icon" href="{{ asset('media/logo.jpeg') }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.jpeg') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.jpeg') }}">
 
     <!-- Fonts and Styles -->
     @yield('css_before')
@@ -212,6 +212,57 @@
                                 href="{{ route('admin.about-tabs.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
                                 <span class="nav-main-link-name">About Tabs</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/attorneys/*') || request()->is('admin/attorneys') ? ' active' : '' }}"
+                                href="{{ route('admin.attorneys.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Attorneys</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/practice-areas/*') || request()->is('admin/practice-areas') ? ' active' : '' }}"
+                                href="{{ route('admin.practice-areas.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Practice Areas</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/case-studies/*') || request()->is('admin/case-studies') ? ' active' : '' }}"
+                                href="{{ route('admin.case-studies.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Case Studies</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/blogs/*') || request()->is('admin/blogs') ? ' active' : '' }}"
+                                href="{{ route('admin.blogs.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Blogs</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/testimonials/*') || request()->is('admin/testimonials') ? ' active' : '' }}"
+                                href="{{ route('admin.testimonials.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Testimonials</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/seo/*') || request()->is('admin/seo') ? ' active' : '' }}"
+                                href="{{ route('admin.seo.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">SEO</span>
                             </a>
                         </li>
 

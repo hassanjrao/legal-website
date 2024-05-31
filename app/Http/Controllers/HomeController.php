@@ -85,4 +85,31 @@ class HomeController extends Controller
         $homePage=HomePage::first();
         return view('front.case-study',compact('caseStudy','homePage'));
     }
+
+    public function blog($id)
+    {
+        $blog=Blog::findorfail($id);
+        $homePage=HomePage::first();
+        return view('front.blog',compact('blog','homePage'));
+    }
+
+    public function blogComment(Request $request,$id)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'message'=>'required',
+        ]);
+
+
+        $blog=Blog::findorfail($id);
+
+        $blog->comments()->create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'message'=>$request->message,
+        ]);
+
+        return back()->with('success','Comment added successfully');
+    }
 }

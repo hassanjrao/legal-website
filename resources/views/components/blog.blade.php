@@ -7,7 +7,7 @@
                     {{ $blog->title }}
                 </a></h3>
         </div>
-        <a href="blog-single.html" class="block-20"
+        <a href="{{ route('blogs.show',$blog->id) }}" class="block-20"
             style="background-image: url('{{ asset('front-assets/images/image_1.jpg') }}');">
         </a>
         <div class="text p-4 float-right d-block">
@@ -29,7 +29,7 @@
             <p>
                 {{ $blog->small_description }}
             </p>
-            <p><a href="#" class="btn btn-primary">Read more</a></p>
+            <p><a href="{{ route('blogs.show',$blog->id) }}" class="btn btn-primary">Read more</a></p>
         </div>
     </div>
 </div>

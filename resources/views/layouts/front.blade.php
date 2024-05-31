@@ -16,19 +16,22 @@
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/aos.css') }}">
 
-    {{-- <link rel="stylesheet" href="{{  asset('front-assets/css/ionicons.min.css')}}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.0.0-19/css/ionicons.min.css">
 
-    {{-- <link rel="stylesheet" href="{{  asset('front-assets/css/flaticon.css')}}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.css">
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/icomoon.css') }}">
-    {{-- <script src="https://kit.fontawesome.com/e98e60b820.js" crossorigin="anonymous"></script> --}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('front-assets/css/style.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/style.min.css">
+
+    <link rel="shortcut icon" href="{{ asset('media/logo.jpeg') }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.jpeg') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.jpeg') }}">
+
 
     @php
         // get page name from url
@@ -57,7 +60,10 @@
 
     <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Legalcare <span>A Law Firm Agency</span></a>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset('media/logo.jpeg') }}" alt="logo" style="width: 100px; height: 100px;">
+
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
