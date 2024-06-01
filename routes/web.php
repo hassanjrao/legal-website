@@ -31,6 +31,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
+Route::get('symlink', function () {
+
+    symlink('/home/edmontontowncar/public_html/dominicanadvocacygroup.com/backend/storage/app/public', '/home/edmontontowncar/public_html/dominicanadvocacygroup.com/storage');
+    echo 'Symlink process successfully completed';
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('attorneys', [HomeController::class, 'attorneys'])->name('attorneys');
