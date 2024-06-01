@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCaseStudyController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminHomePageController;
+use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPracticeAreaController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminSeoController;
@@ -36,6 +37,8 @@ Route::get('symlink', function () {
     symlink('/home/edmontontowncar/public_html/dominicanadvocacygroup.com/backend/storage/app/public', '/home/edmontontowncar/public_html/dominicanadvocacygroup.com/storage');
     echo 'Symlink process successfully completed';
 });
+
+Route::get('page/{slug}', [HomeController::class, 'page'])->name('page');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'aboutUs'])->name('about-us');
@@ -76,6 +79,8 @@ Route::middleware(["auth"])->group(function () {
         Route::resource('testimonials', AdminTestimonialController::class);
 
         Route::resource('seo', AdminSeoController::class)->only(["index", "update"]);
+
+        Route::resource('pages', AdminPageController::class);
 
         Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
 

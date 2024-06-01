@@ -87,3 +87,10 @@
         </div>
     </section>
 @endsection
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $('img').addClass('img-fluid');
+    });
+</script>
+@endsection

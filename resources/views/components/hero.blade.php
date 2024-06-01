@@ -6,6 +6,8 @@
     $page = \App\Models\Page::where('name', $pageName)->first();
 @endphp
 
+@section('page-title', $pageTitle)
+
 <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ $homePage->hero_bg_image_url }}');"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>

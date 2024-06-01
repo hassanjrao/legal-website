@@ -7,6 +7,7 @@ use App\Models\Attorney;
 use App\Models\Blog;
 use App\Models\CaseStudy;
 use App\Models\HomePage;
+use App\Models\Page;
 use App\Models\PracticeArea;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -111,5 +112,16 @@ class HomeController extends Controller
         ]);
 
         return back()->with('success','Comment added successfully');
+    }
+
+    public function page($slug)
+    {
+        $page=Page::where('slug',$slug)->first();
+        if(!$page)
+        {
+            abort(404);
+        }
+        $homePage=HomePage::first();
+        return view('front.page',compact('page','homePage'));
     }
 }

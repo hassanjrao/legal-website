@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class AdminSeoController extends Controller
+class AdminPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,11 @@ class AdminSeoController extends Controller
      */
     public function index()
     {
-        $pages=Page::all();
+        $pages=Page::latest()
+        ->where('is_static',0)
+        ->get();
 
-        return view('admin.seo.add_edit',compact('pages'));
+        return view('admin.pages.index',compact('pages'));
     }
 
     /**
@@ -26,7 +28,9 @@ class AdminSeoController extends Controller
      */
     public function create()
     {
-        //
+        $page=null;
+
+        return view('admin.pages.add_edit',compact('page'));
     }
 
     /**
@@ -37,7 +41,26 @@ class AdminSeoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'slug'=>'required|unique:pages,slug',
+            'content'=>'required',
+            'meta_tags'=>'nullable'
+        ]);
+
+        $slug=strtolower($request->slug);
+        $slug=str_replace(' ','-',$slug);
+
+        Page::create([
+            'title'=>$request->title,
+            'slug'=>$slug,
+            'content'=>$request->content,
+            'is_static'=>0,
+            'name'=>$slug,
+            'meta_tags'=>$request->meta_tags
+        ]);
+
+        return redirect()->route('admin.pages.index')->withToastSuccess('Page added successfully');
     }
 
     /**
@@ -59,7 +82,9 @@ class AdminSeoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page=Page::findorfail($id);
+
+        return view('admin.pages.add_edit',compact('page'));
     }
 
     /**
@@ -73,20 +98,24 @@ class AdminSeoController extends Controller
     {
         $request->validate([
             'title'=>'required',
+            'slug'=>'required|unique:pages,slug,'.$id,
+            'content'=>'required',
+            'meta_tags'=>'nullable'
         ]);
+
+        $slug=strtolower($request->slug);
+        $slug=str_replace(' ','-',$slug);
 
         $page=Page::findorfail($id);
 
         $page->update([
             'title'=>$request->title,
-            'meta_tags'=>$request->meta_tags,
-            'is_active'=> $request->is_active ? 1 : 0,
+            'slug'=>$slug,
+            'content'=>$request->content,
+            'meta_tags'=>$request->meta_tags
         ]);
 
-
-
-        return redirect()->route('admin.seo.index')->withToastSuccess('Updated successfully');
-
+        return redirect()->route('admin.pages.index')->withToastSuccess('Page updated successfully');
     }
 
     /**

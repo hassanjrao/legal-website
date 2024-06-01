@@ -12,4 +12,21 @@ class Page extends Model
 
     protected $guarded = [];
 
+    protected $appends=['short_content'];
+
+
+    public function getShortContentAttribute()
+    {
+        // remove all HTML tags
+        $string = strip_tags($this->content);
+
+        if (strlen($string) > 100) {
+
+            $string=substr($string, 0, 100).'...';
+        }
+
+        return $string;
+
+    }
+
 }

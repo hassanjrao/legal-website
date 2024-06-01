@@ -37,12 +37,13 @@
         // get page name from url
         $pageName = request()->segment(1) ?? 'home';
 
-
         $page = \App\Models\Page::where('name', $pageName)->first();
 
     @endphp
 
-    <title>{{ $page ? $page->title : config('app.name') }}</title>
+    <title>
+        @yield('page-title', $page ? $page->title : 'Home')
+    </title>
 
     @if ($page)
         {!! $page->meta_tags !!}
@@ -54,37 +55,76 @@
     $homePage = \App\Models\HomePage::first();
     $practiceAreas = \App\Models\PracticeArea::all();
 
+    $pages = \App\Models\Page::all();
+    $dynamicPages = \App\Models\Page::where('is_active', 1)->where('is_static', 0)->get();
+
 @endphp
 
 <body>
 
     <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
+
+
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('media/logo.png') }}" alt="logo" style="width: 100px; height: 100px;">
-
             </a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
+                <span class="fa fa-bars"></span>
+                Menu
             </button>
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item {{ request()->segment(1) == '' ? 'active' : '' }}"><a
-                            href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'about' ? 'active' : '' }}"><a
-                            href="{{ route('about-us') }}" class="nav-link">About</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'attorneys' ? 'active' : '' }} "><a
-                            href="{{ route('attorneys') }}" class="nav-link">Attorneys</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'practice-areas' ? 'active' : '' }}"><a
-                            href="{{ route('practice-areas') }}" class="nav-link">Practice Areas</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'case-studies' ? 'active' : '' }}"><a
-                            href="{{ route('case-studies') }}" class="nav-link">Case Studies</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'blogs' ? 'active' : '' }}"><a
-                            href="{{ route('blogs') }}" class="nav-link">Blog</a></li>
-                    <li class="nav-item {{ request()->segment(1) == 'contact' ? 'active' : '' }}"><a
-                            href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+
+                    @foreach ($pages as $page)
+                        @if ($page->name == 'home' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == '' ? 'active' : '' }}">
+                                <a href="{{ route('home') }}" class="nav-link">
+                                    {{ $page->title }}
+                                </a>
+                            </li>
+                        @endif
+                        @if ($page->name == 'about' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'about' ? 'active' : '' }}"><a
+                                    href="{{ route('about-us') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                        @if ($page->name == 'attorneys' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'attorneys' ? 'active' : '' }} "><a
+                                    href="{{ route('attorneys') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                        @if ($page->name == 'practice-areas' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'practice-areas' ? 'active' : '' }}"><a
+                                    href="{{ route('practice-areas') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                        @if ($page->name == 'case-studies' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'case-studies' ? 'active' : '' }}"><a
+                                    href="{{ route('case-studies') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                        @if ($page->name == 'blogs' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'blogs' ? 'active' : '' }}"><a
+                                    href="{{ route('blogs') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                        @if ($page->name == 'contact' && $page->is_active)
+                            <li class="nav-item {{ request()->segment(1) == 'contact' ? 'active' : '' }}"><a
+                                    href="{{ route('contact') }}" class="nav-link">{{ $page->title }}</a></li>
+                        @endif
+                    @endforeach
+
+                    {{-- menu with submenu --}}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More</a>
+                        <div class="dropdown-menu">
+                            @foreach ($dynamicPages as $page)
+                                <a href="{{ route('page', $page->slug) }}" class="dropdown-item">{{ $page->title }}</a>
+                            @endforeach
+                        </div>
+                    </li>
+
+
+
                     <li class="nav-item cta"><a
                             href="{{ request()->segment(1) == '' || request()->segment(1) == 'about' ? '#appointment' : route('about-us') . '#appointment' }}"
                             class="nav-link">Free Consultation</a></li>
@@ -105,11 +145,11 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="logo"><a href="#">Legalcare <span>A Law Firm Agency</span></a></h2>
                         <p>{{ $homePage->footer_description }}</p>
-                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        {{-- <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
                 <div class="col-md">
@@ -131,13 +171,19 @@
                         <h2 class="ftco-heading-2">Have a Questions?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">
+                                <li>
+                                    <span class="fa fa-map-marker" style="margin-right: 20px !important"></span>
+                                    <span class="text">
                                         {{ $homePage->address }}
                                     </span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">
+                                <li><a href="#"><span class="fa fa-phone" style="margin-right: 20px !important"></span>
+                                    <span class="text">
                                             {{ $homePage->phone }}
-                                        </span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li><a href="#"><span class="fa fa-paper-plane" style="margin-right: 20px !important"></span>
+                                    <span class="text">
                                             {{ $homePage->email }}
                                         </span></a></li>
                             </ul>
@@ -195,6 +241,8 @@
     <script src="{{ asset('front-assets/js/main.js') }}"></script>
 
 </body>
+
+@yield('scripts')
 
 
 </html>

@@ -23,6 +23,7 @@
                                 <th>#</th>
                                 <th>Page</th>
                                 <th>Title</th>
+                                <th>Active</th>
                                 <th width='600px'>Meta Tags (Any Tags inside Head)</th>
                                 <th>Action</th>
 
@@ -43,6 +44,13 @@
                                         <td>
                                             <input type="text" class="form-control" name="title" value="{{ $page->title }}">
                                         </td>
+                                        {{-- switch box --}}
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" name="is_active"
+                                                    id="active{{ $page->id }}" {{ $page->is_active ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="active{{ $page->id }}"></label>
+                                            </div>
                                         <td>
                                             <textarea class="form-control" name="meta_tags" rows="3">{{ $page->meta_tags }}</textarea>
                                         </td>
