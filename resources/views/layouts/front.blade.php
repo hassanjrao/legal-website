@@ -28,9 +28,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/style.min.css">
 
-    <link rel="shortcut icon" href="{{ asset('media/logo.jpeg') }}">
-    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.jpeg') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.jpeg') }}">
+    <link rel="shortcut icon" href="{{ asset('media/logo.png') }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.png') }}">
 
 
     @php
@@ -61,7 +61,7 @@
     <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('media/logo.jpeg') }}" alt="logo" style="width: 100px; height: 100px;">
+                <img src="{{ asset('media/logo.png') }}" alt="logo" style="width: 100px; height: 100px;">
 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
