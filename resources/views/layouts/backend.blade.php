@@ -275,6 +275,15 @@
                         </li>
 
 
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/settings/*') || request()->is('admin/settings') ? ' active' : '' }}"
+                                href="{{ route('admin.settings.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Settings</span>
+                            </a>
+                        </li>
+
+
 
 
                     </ul>

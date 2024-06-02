@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             PracticeAreaSeeder::class,
             PageSeeder::class,
             BlogCommentSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

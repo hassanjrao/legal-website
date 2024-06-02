@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminPracticeAreaController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminSeoController;
 use App\Http\Controllers\AdminServiceController;
+use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\CkEditorController;
 use App\Http\Controllers\HomeController;
@@ -84,6 +85,7 @@ Route::middleware(["auth"])->group(function () {
 
         Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
 
+        Route::resource("settings", AdminSettingController::class)->only(["index", "update"]);
 
     });
 });
