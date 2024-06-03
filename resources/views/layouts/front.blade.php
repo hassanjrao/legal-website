@@ -157,20 +157,27 @@
                         </ul> --}}
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4 ml-md-5">
-                        <h2 class="ftco-heading-2">Practice Areas</h2>
-                        <ul class="list-unstyled">
-                            @foreach ($practiceAreas as $practiceArea)
-                                <li><a href="#" class="py-1 d-block"><span
-                                            class="ion-ios-arrow-forward mr-3"></span>
-                                        {{ $practiceArea->title }}
-                                    </a></li>
-                            @endforeach
+                @php
+                    $practiceAreaPage = $pages->where('slug', 'practice-areas')->first();
+                @endphp
+                @if ($practiceAreaPage && $practiceAreaPage->is_active)
 
-                        </ul>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-5">
+                            <h2 class="ftco-heading-2">Practice Areas</h2>
+                            <ul class="list-unstyled">
+                                @foreach ($practiceAreas as $practiceArea)
+                                    <li><a href="#" class="py-1 d-block"><span
+                                                class="ion-ios-arrow-forward mr-3"></span>
+                                            {{ $practiceArea->title }}
+                                        </a></li>
+                                @endforeach
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
+
+                @endif
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">Have a Questions?</h2>

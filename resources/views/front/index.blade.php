@@ -1,5 +1,8 @@
 @extends('layouts.front')
+@php
 
+    $pages = \App\Models\Page::all();
+@endphp
 @section('content')
     <div class="hero-wrap js-fullheight" style="background-image: url('{{ $homePage->hero_bg_image_url }}');"
         data-stellar-background-ratio="0.5">
@@ -51,49 +54,66 @@
     </section>
 
     {{-- about us --}}
-    <x-about :about="$aboutUs" />
+    @php
+        $aboutPage = $pages->where('slug', 'about')->first();
+    @endphp
+    @if ($aboutPage && $aboutPage->is_active)
+        <x-about :about="$aboutUs" />
+    @endif
     {{-- end about us --}}
 
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-10 text-center heading-section ftco-animate">
-                    <span class="subheading">Explore Case Studies</span>
-                    <h2 class="mb-4">1000+ Completed Cases Successfully</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel-case owl-carousel ftco-owl">
-                        @foreach ($caseStudies as $case)
-                            <x-case-study :case="$case" />
-                        @endforeach
+    @php
+        $caseStudyPage = $pages->where('slug', 'case-studies')->first();
+    @endphp
 
+    @if ($caseStudyPage && $caseStudyPage->is_active)
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-10 text-center heading-section ftco-animate">
+                        <span class="subheading">Explore Case Studies</span>
+                        <h2 class="mb-4">1000+ Completed Cases Successfully</h2>
                     </div>
                 </div>
-                <div class="col-md-12 text-center mt-4">
-                    <a href="{{ route('case-studies') }}" class="btn btn-primary px-5">See All Successful Cases</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="carousel-case owl-carousel ftco-owl">
+                            @foreach ($caseStudies as $case)
+                                <x-case-study :case="$case" />
+                            @endforeach
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center mt-4">
+                        <a href="{{ route('case-studies') }}" class="btn btn-primary px-5">See All Successful Cases</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-    <section class="ftco-section ftco-no-pt">
-        <div class="container-fluid px-md-5">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 text-center heading-section ftco-animate">
-                    <span class="subheading">Our Attorney</span>
-                    <h2 class="mb-4">Our Legal Attorneys</h2>
+    @php
+        $attornyPage = $pages->where('slug', 'attorneys')->first();
+    @endphp
+
+    @if ($attornyPage && $attornyPage->is_active)
+        <section class="ftco-section ftco-no-pt">
+            <div class="container-fluid px-md-5">
+                <div class="row justify-content-center mb-5 pb-3">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <span class="subheading">Our Attorney</span>
+                        <h2 class="mb-4">Our Legal Attorneys</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach ($attornies as $attorny)
+                        <x-attorney :attorney="$attorny" />
+                    @endforeach
+
                 </div>
             </div>
-            <div class="row">
-                @foreach ($attornies as $attorny)
-                    <x-attorney :attorney="$attorny" />
-                @endforeach
-
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 
     <x-appointment :homePage="$homePage" />
@@ -119,23 +139,26 @@
         </div>
     </section>
 
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Our Blog</span>
-                    <h2>Recent Blog</h2>
+    @php
+        $blogPage = $pages->where('slug', 'blogs')->first();
+    @endphp
+    @if ($blogPage && $blogPage->is_active)
+        <section class="ftco-section bg-light">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <span class="subheading">Our Blog</span>
+                        <h2>Recent Blog</h2>
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    @foreach ($blogs as $blog)
+                        <x-blog :blog="$blog" />
+                    @endforeach
                 </div>
             </div>
-            <div class="row d-flex">
-                @foreach ($blogs as $blog)
-                    <x-blog :blog="$blog" />
+        </section>
+    @endif
 
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-
-   <x-newsletter />
+    <x-newsletter />
 @endsection

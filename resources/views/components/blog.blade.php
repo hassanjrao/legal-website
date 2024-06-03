@@ -1,5 +1,6 @@
 @props(['blog'])
 
+
 <div class="col-md-4 d-flex ftco-animate">
     <div class="blog-entry justify-content-end">
         <div class="text px-4 py-4">

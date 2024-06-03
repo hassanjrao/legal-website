@@ -18,6 +18,7 @@ class PageSeeder extends Seeder
         Page::create([
             'name' => 'home',
             'title' => 'Home',
+            'slug' => 'home',
             'meta_tags'=>'<meta name="description" content="Home Page Meta Description"> <meta name="keywords" content="Home Page Meta Keywords">',
             'is_static'=>1,
         ]);
@@ -25,6 +26,7 @@ class PageSeeder extends Seeder
         Page::create([
             'name' => 'about',
             'title' => 'About',
+            'slug' => 'about',
             'is_static'=>1,
             'meta_tags'=>'<meta name="description" content="About Page Meta Description"> <meta name="keywords" content="About Page Meta Keywords">',
         ]);
@@ -33,6 +35,7 @@ class PageSeeder extends Seeder
             'name' => 'contact',
             'title' => 'Contact',
             'is_static'=>1,
+            'slug' => 'contact',
             'meta_tags'=>'<meta name="description" content="Contact Page Meta Description"> <meta name="keywords" content="Contact Page Meta Keywords">',
         ]);
 
@@ -40,6 +43,7 @@ class PageSeeder extends Seeder
             'name' => 'attorneys',
             'title' => 'Attorneys',
             'is_static'=>1,
+            'slug' => 'attorneys',
             'meta_tags'=>'<meta name="description" content="Attorneys Page Meta Description"> <meta name="keywords" content="Attorneys Page Meta Keywords">',
         ]);
 
@@ -47,6 +51,7 @@ class PageSeeder extends Seeder
             'name' => 'practice-areas',
             'title' => 'Practice Areas',
             'is_static'=>1,
+            'slug' => 'practice-areas',
             'meta_tags'=>'<meta name="description" content="Practice Areas Page Meta Description"> <meta name="keywords" content="Practice Areas Page Meta Keywords">',
         ]);
 
@@ -54,6 +59,7 @@ class PageSeeder extends Seeder
             'name' => 'case-studies',
             'title' => 'Case Studies',
             'is_static'=>1,
+            'slug' => 'case-studies',
             'meta_tags'=>'<meta name="description" content="Case Studies Page Meta Description"> <meta name="keywords" content="Case Studies Page Meta Keywords">',
         ]);
 
@@ -61,6 +67,7 @@ class PageSeeder extends Seeder
             'name' => 'blogs',
             'title' => 'Blogs',
             'is_static'=>1,
+            'slug' => 'blogs',
             'meta_tags'=>'<meta name="description" content="Blogs Page Meta Description"> <meta name="keywords" content="Blogs Page Meta Keywords">',
         ]);
     }
