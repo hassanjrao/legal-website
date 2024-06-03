@@ -30,18 +30,19 @@
             </div>
             <div class="row block-9 no-gutters">
                 <div class="col-lg-6 order-md-last d-flex">
-                    <form action="#" class="bg-light p-5 contact-form">
+                    <form action="{{ route('contact.submit') }}" class="bg-light p-5 contact-form" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" required class="form-control" name="name" placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="email" required class="form-control" name="email" placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" required class="form-control" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                            <textarea required name="message" required cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">

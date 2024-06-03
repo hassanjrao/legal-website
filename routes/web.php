@@ -51,6 +51,7 @@ Route::get('blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('blogs/{id}', [HomeController::class, 'blog'])->name('blogs.show');
 Route::post('blog/{id}/comment', [HomeController::class, 'blogComment'])->name('blogs.comment');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('contact', [HomeController::class, 'contactSubmit'])->name('contact.submit');
 
 
 Route::post('ckeditor/upload', [CkEditorController::class, 'upload'])->name('ckeditor.upload');

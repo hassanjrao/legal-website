@@ -12,18 +12,19 @@ style="background-image: url('{{ $homePage->appointment_bg_image_url }}');">
                 <h2 class="mb-4">
                     {{ $homePage->appointment_title }}
                 </h2>
-                <form action="#" class="consultation">
+                <form action="{{ route('contact.submit') }}" class="consultation" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control" required name="name" placeholder="Your Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="email" class="form-control" required name="email" placeholder="Your Email">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <input type="text" required name="subject" class="form-control" placeholder="Subject">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                        <textarea name="message" required  cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send message" class="btn btn-dark py-3 px-4">

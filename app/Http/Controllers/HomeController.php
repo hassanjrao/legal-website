@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Attorney;
 use App\Models\Blog;
 use App\Models\CaseStudy;
+use App\Models\ContactUsUser;
 use App\Models\HomePage;
 use App\Models\Page;
 use App\Models\PracticeArea;
@@ -78,6 +79,25 @@ class HomeController extends Controller
     {
         $homePage=HomePage::first();
         return view('front.contact',compact('homePage'));
+    }
+
+    public function contactSubmit(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'subject'=>'required', 
+            'message'=>'required',
+        ]);
+
+        ContactUsUser::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'message'=>$request->message,
+        ]);
+
+        return back()->withToastSuccess('Message sent successfully');
     }
 
     public function caseStudy($id)

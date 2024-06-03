@@ -33,6 +33,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.png') }}">
 
 
+
+
     @php
         // get page name from url
         $pageName = request()->segment(1) ?? 'home';
@@ -241,6 +243,10 @@
     <script src="{{ asset('front-assets/js/main.js') }}"></script>
 
 </body>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@include('sweetalert::alert')
+
 
 @yield('scripts')
 
