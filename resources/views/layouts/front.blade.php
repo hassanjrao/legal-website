@@ -116,14 +116,17 @@
                     @endforeach
 
                     {{-- menu with submenu --}}
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More</a>
-                        <div class="dropdown-menu">
-                            @foreach ($dynamicPages as $page)
-                                <a href="{{ route('page', $page->slug) }}" class="dropdown-item">{{ $page->title }}</a>
-                            @endforeach
-                        </div>
-                    </li>
+                    @if (isset($dynamicPages) && count($dynamicPages) > 0)
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More</a>
+                            <div class="dropdown-menu">
+                                @foreach ($dynamicPages as $page)
+                                    <a href="{{ route('page', $page->slug) }}"
+                                        class="dropdown-item">{{ $page->title }}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
 
 
 
@@ -177,15 +180,18 @@
                                     <span class="fa fa-map-marker" style="margin-right: 20px !important"></span>
                                     <span class="text">
                                         {{ $homePage->address }}
-                                    </span></li>
-                                <li><a href="#"><span class="fa fa-phone" style="margin-right: 20px !important"></span>
-                                    <span class="text">
+                                    </span>
+                                </li>
+                                <li><a href="#"><span class="fa fa-phone"
+                                            style="margin-right: 20px !important"></span>
+                                        <span class="text">
                                             {{ $homePage->phone }}
                                         </span>
                                     </a>
                                 </li>
-                                <li><a href="#"><span class="fa fa-paper-plane" style="margin-right: 20px !important"></span>
-                                    <span class="text">
+                                <li><a href="#"><span class="fa fa-paper-plane"
+                                            style="margin-right: 20px !important"></span>
+                                        <span class="text">
                                             {{ $homePage->email }}
                                         </span></a></li>
                             </ul>
