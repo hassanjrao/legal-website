@@ -8,7 +8,7 @@
                 </a></h3>
         </div>
         <a href="{{ route('blogs.show',$blog->id) }}" class="block-20"
-            style="background-image: url('{{ asset('front-assets/images/image_1.jpg') }}');">
+            style="background-image: url('{{ $blog->image_url }}');">
         </a>
         <div class="text p-4 float-right d-block">
             <div class="topper d-flex align-items-center">
