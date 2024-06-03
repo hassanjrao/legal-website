@@ -14,6 +14,7 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
+        Page::truncate();
         Page::create([
             'name' => 'home',
             'title' => 'Home',
