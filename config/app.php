@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
-        App\Providers\EmailSettingsServiceProvider::class,
+        // App\Providers\EmailSettingsServiceProvider::class,
 
 
     ],
