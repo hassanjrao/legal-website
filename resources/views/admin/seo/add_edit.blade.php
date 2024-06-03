@@ -48,7 +48,7 @@
                                         <td>
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" name="is_active"
-                                                {{ $page->slug == 'home' ? 'disabled' : '' }}
+                                                {{ $page->name == 'home' ? 'disabled' : '' }}
                                                     id="active{{ $page->id }}" {{ $page->is_active ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="active{{ $page->id }}"></label>
                                             </div>
