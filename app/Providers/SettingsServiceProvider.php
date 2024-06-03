@@ -28,7 +28,7 @@ class SettingsServiceProvider extends ServiceProvider
         $settings = DB::table('settings')->first();
 
         if ($settings) {
-            Config::set('app.name', $settings->app_name);
+            Config::set('app.name', $settings->app_name ? $settings->app_name : config('app.name'));
             Config::set('mail.driver', $settings->mail_driver);
             Config::set('mail.host', $settings->mail_host);
             Config::set('mail.port', $settings->mail_port);
