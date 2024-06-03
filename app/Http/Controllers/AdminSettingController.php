@@ -71,7 +71,33 @@ class AdminSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'app_name'=>'required',
+            'mail_driver'=>'required',
+            'mail_host'=>'required',
+            'mail_port'=>'required',
+            'mail_username'=>'required',
+            'mail_password'=>'required',
+            'mail_encryption'=>'nullable',
+            'mail_from_address'=>'nullable',
+            'mail_from_name'=>'nullable',
+        ]);
+
+        $setting=Setting::first();
+
+        $setting->update([
+            'app_name'=>$request->app_name,
+            'mail_driver'=>$request->mail_driver,
+            'mail_host'=>$request->mail_host,
+            'mail_port'=>$request->mail_port,
+            'mail_username'=>$request->mail_username,
+            'mail_password'=>$request->mail_password,
+            'mail_encryption'=>$request->mail_encryption,
+            'mail_from_address'=>$request->mail_from_address,
+            'mail_from_name'=>$request->mail_from_name,
+        ]);
+
+        return back()->withToastSuccess('Settings updated successfully');
     }
 
     /**

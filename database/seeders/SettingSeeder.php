@@ -20,7 +20,7 @@ class SettingSeeder extends Seeder
             'id' => 1,
             'logo_path' => 'media/logo.png',
             'favicon_path' => 'media/logo.png',
-            'mail_mailer' => 'smtp',
+            'mail_driver' => 'smtp',
             'mail_host' => 'smtp.mailtrap.io',
             'mail_port' => '2525',
             'mail_username' => 'your_username',
