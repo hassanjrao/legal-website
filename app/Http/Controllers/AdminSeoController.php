@@ -14,9 +14,9 @@ class AdminSeoController extends Controller
      */
     public function index()
     {
-        $pages=Page::all();
+        $pages = Page::all();
 
-        return view('admin.seo.add_edit',compact('pages'));
+        return view('admin.seo.add_edit', compact('pages'));
     }
 
     /**
@@ -72,21 +72,24 @@ class AdminSeoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'=>'required',
+            'title' => 'required',
         ]);
 
-        $page=Page::findorfail($id);
+        $page = Page::findorfail($id);
 
+        $is_active = 0;
+        if ($page->name != 'home') {
+            $is_active = $request->is_active ? 1 : 0;
+        }
         $page->update([
-            'title'=>$request->title,
-            'meta_tags'=>$request->meta_tags,
-            'is_active'=> $request->is_active ? 1 : 0,
+            'title' => $request->title,
+            'meta_tags' => $request->meta_tags,
+            'is_active' => $is_active,
         ]);
 
 
 
         return redirect()->route('admin.seo.index')->withToastSuccess('Updated successfully');
-
     }
 
     /**
