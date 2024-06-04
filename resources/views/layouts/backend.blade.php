@@ -266,6 +266,18 @@
                             </a>
                         </li>
 
+
+
+
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/contact-us/*') || request()->is('admin/contact-us') ? ' active' : '' }}"
+                                href="{{ route('admin.contact-us.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Contact US </span>
+                            </a>
+                        </li>
+
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/pages/*') || request()->is('admin/pages') ? ' active' : '' }}"
                                 href="{{ route('admin.pages.index') }}">
@@ -282,7 +294,6 @@
                                 <span class="nav-main-link-name">Settings</span>
                             </a>
                         </li>
-
 
 
 

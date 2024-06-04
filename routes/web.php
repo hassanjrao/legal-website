@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminAppointmentController;
 use App\Http\Controllers\AdminAttorneyController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCaseStudyController;
+use App\Http\Controllers\AdminContactUsUserController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminHomePageController;
 use App\Http\Controllers\AdminPageController;
@@ -89,6 +90,9 @@ Route::middleware(["auth"])->group(function () {
         Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
 
         Route::resource("settings", AdminSettingController::class)->only(["index", "update"]);
+
+
+        Route::resource('contact-us', AdminContactUsUserController::class)->only(["index", "destroy"]);
 
 
     });
