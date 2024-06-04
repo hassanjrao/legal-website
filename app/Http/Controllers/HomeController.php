@@ -14,6 +14,7 @@ use App\Models\Testimonial;
 use App\Models\User;
 use App\Notifications\ContactUsNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -102,8 +103,16 @@ class HomeController extends Controller
         $admin=User::first();
 
 
+        try{
         $admin->notify(new ContactUsNotification($ContactUsUser));
-
+        }catch(\Exception $e)
+        {
+            Log::error('HomeController@contactSubmit: ',[
+                'error'=>$e->getMessage(),
+                'line'=>$e->getLine(),
+                'stack'=>$e->getTraceAsString(),
+            ]);
+        }
 
         return back()->withToastSuccess('Message sent successfully');
     }
