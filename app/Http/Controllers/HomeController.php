@@ -11,6 +11,8 @@ use App\Models\HomePage;
 use App\Models\Page;
 use App\Models\PracticeArea;
 use App\Models\Testimonial;
+use App\Models\User;
+use App\Notifications\ContactUsNotification;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -86,16 +88,22 @@ class HomeController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
-            'subject'=>'required', 
+            'subject'=>'required',
             'message'=>'required',
         ]);
 
-        ContactUsUser::create([
+        $ContactUsUser=ContactUsUser::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'subject'=>$request->subject,
             'message'=>$request->message,
         ]);
+
+        $admin=User::first();
+
+
+        $admin->notify(new ContactUsNotification($ContactUsUser));
+
 
         return back()->withToastSuccess('Message sent successfully');
     }

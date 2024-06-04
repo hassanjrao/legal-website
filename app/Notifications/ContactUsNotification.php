@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\ContactUsUser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -16,9 +17,10 @@ class ContactUsNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public ContactUsUser $contactUsUser;
+    public function __construct(ContactUsUser $contactUsUser)
     {
-        //
+        $this->contactUsUser = $contactUsUser;
     }
 
     /**
@@ -41,9 +43,12 @@ class ContactUsNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Contact Us Form Submitted')
+            ->line('Name: ' . $this->contactUsUser->name)
+            ->line('Email: ' . $this->contactUsUser->email)
+            ->line('Subject: ' . $this->contactUsUser->subject)
+            ->line('Message: ' . $this->contactUsUser->message);
+            // ->action('Notification Action', route('admin.contact-us.index'));
     }
 
     /**
