@@ -14,7 +14,9 @@ class AdminBlogController extends Controller
      */
     public function index()
     {
-        $blogs=Blog::latest()->get();
+        // with comments_count is a custom attribute
+        $blogs=Blog::withCount('comments')->get();
+
 
         return view('admin.blogs.index',compact('blogs'));
     }
@@ -119,5 +121,22 @@ class AdminBlogController extends Controller
         $blog->delete();
 
         return redirect()->route('admin.blogs.index')->with('success','Blog deleted successfully');
+    }
+
+
+    public function comments($blog_id)
+    {
+        $blog=Blog::findorfail($blog_id);
+
+        return view('admin.blogs.comments',compact('blog'));
+    }
+
+    public function deleteComment($blog_id,$comment_id)
+    {
+        $blog=Blog::findorfail($blog_id);
+
+        $blog->comments()->where('id',$comment_id)->delete();
+
+        return redirect()->route('admin.blogs.comments',$blog_id)->with('success','Comment deleted successfully');
     }
 }

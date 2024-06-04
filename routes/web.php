@@ -76,6 +76,8 @@ Route::middleware(["auth"])->group(function () {
 
         Route::resource('case-studies', AdminCaseStudyController::class);
 
+        Route::get('blogs/{id}/comments', [AdminBlogController::class, 'comments'])->name('blogs.comments');
+        Route::delete('blogs/{id}/comments/{comment_id}', [AdminBlogController::class, 'deleteComment'])->name('blogs.comments.delete');
         Route::resource('blogs', AdminBlogController::class);
 
         Route::resource('testimonials', AdminTestimonialController::class);
@@ -87,6 +89,7 @@ Route::middleware(["auth"])->group(function () {
         Route::resource("profile", AdminProfileController::class)->only(["index", "update"]);
 
         Route::resource("settings", AdminSettingController::class)->only(["index", "update"]);
+
 
     });
 });

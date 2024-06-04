@@ -38,6 +38,7 @@
                                 <th>Image</th>
                                 <th>Small Description</th>
                                 <th>Description</th>
+                                <th>Total Comments</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Action</th>
@@ -58,7 +59,7 @@
                                     </td>
                                     <td>{{ $blog->small_description }}</td>
                                     <td>{{ $blog->short_description }}</td>
-
+                                    <td>{{ $blog->comments_count }}</td>
                                     <td>{{ $blog->created_at }}</td>
                                     <td>{{ $blog->updated_at }}</td>
 
@@ -67,6 +68,14 @@
                                             data-toggle="tooltip" title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
+
+                                        {{-- comments --}}
+                                        <a href="{{ route('admin.blogs.comments', $blog->id) }}" class="btn btn-sm btn-info"
+                                            data-toggle="tooltip" title="Comments">
+                                            <i class="fa fa-comments"></i>
+                                        </a>
+
+
                                         <form id="form-{{ $blog->id }}"
                                             action="{{ route('admin.blogs.destroy', $blog->id) }}" method="POST">
                                             @method('DELETE')
