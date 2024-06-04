@@ -34,7 +34,7 @@ class SettingsServiceProvider extends ServiceProvider
             Config::set('mail.port', $settings->mail_port ?? env('MAIL_PORT'));
             Config::set('mail.username', $settings->mail_username ?? env('MAIL_USERNAME'));
             Config::set('mail.password', $settings->mail_password ?? env('MAIL_PASSWORD'));
-            // Config::set('mail.encryption', $settings->mail_encryption ?? env('MAIL_ENCRYPTION'));
+            Config::set('mail.encryption', $settings->mail_encryption ?? env('MAIL_ENCRYPTION'));
             Config::set('mail.from.address', $settings->mail_from_address ?? env('MAIL_FROM_ADDRESS'));
             Config::set('mail.from.name', $settings->mail_from_name ?? env('MAIL_FROM_NAME'));
         }
