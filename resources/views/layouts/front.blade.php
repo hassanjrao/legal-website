@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/style.min.css">
 
-    <link rel="shortcut icon" href="{{ $settings->logo_url }}">
+    <link rel="shortcut icon" href="{{ $settings->favicon_url }}">
     <link rel="icon" sizes="192x192" type="image/png" href="{{ $settings->favicon_url }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $settings->favicon_url }}">
 
