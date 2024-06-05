@@ -85,6 +85,8 @@ class AdminSettingController extends Controller
 
         $setting=Setting::first();
 
+
+
         $setting->update([
             'app_name'=>$request->app_name,
             'mail_driver'=>$request->mail_driver,
@@ -96,6 +98,20 @@ class AdminSettingController extends Controller
             'mail_from_address'=>$request->mail_from_address,
             'mail_from_name'=>$request->mail_from_name,
         ]);
+
+        if($setting->logo){
+            $setting->update([
+                'logo_path'=>$request->file('logo')->store('settings')
+            ]);
+
+
+        }
+
+        if($setting->favicon){
+            $setting->update([
+                'favicon_path'=>$request->file('favicon')->store('settings')
+            ]);
+        }
 
         return back()->withToastSuccess('Settings updated successfully');
     }
