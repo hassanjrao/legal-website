@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    @php
+        $settings = \App\Models\Setting::first();
+    @endphp
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,9 +32,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/style.min.css">
 
-    <link rel="shortcut icon" href="{{ asset('media/logo.png') }}">
-    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.png') }}">
+    <link rel="shortcut icon" href="{{ $settings->logo_url }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ $settings->favicon_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $settings->favicon_url }}">
 
 
 

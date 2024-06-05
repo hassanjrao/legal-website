@@ -14,9 +14,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="{{ asset('media/logo.png') }}">
-    <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/logo.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/logo.png') }}">
+
+    @php
+        $settings = \App\Models\Setting::first();
+    @endphp
+
+
+<link rel="shortcut icon" href="{{ $settings->logo_url }}">
+<link rel="icon" sizes="192x192" type="image/png" href="{{ $settings->favicon_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ $settings->favicon_url }}">
 
     <!-- Fonts and Styles -->
     @yield('css_before')
