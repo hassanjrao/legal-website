@@ -20,9 +20,9 @@
     @endphp
 
 
-<link rel="shortcut icon" href="{{ $settings->favicon_url }}">
-<link rel="icon" sizes="192x192" type="image/png" href="{{ $settings->favicon_url }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ $settings->favicon_url }}">
+    <link rel="shortcut icon" href="{{ $settings->favicon_url }}">
+    <link rel="icon" sizes="192x192" type="image/png" href="{{ $settings->favicon_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $settings->favicon_url }}">
 
     <!-- Fonts and Styles -->
     @yield('css_before')
@@ -83,8 +83,7 @@
 
             'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
         -->
-    <div id="page-container"
-        class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed ">
+    <div id="page-container" class="sidebar-o enable-page-overlay sidebar-dark side-scroll page-header-fixed ">
         <!-- Side Overlay-->
         <aside id="side-overlay" class="fs-sm">
             <!-- Side Header -->
