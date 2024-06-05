@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
                 data-scrollax-parent="true">
-                <div class="col-md-6 ftco-animate">
+                <div class="col-md-6 ftco-animate " style="margin-top: 100px !important">
                     <h2 class="subheading">
                         {{ $homePage->hero_welcome }}
                     </h2>
