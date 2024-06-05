@@ -99,7 +99,7 @@ class AdminSettingController extends Controller
             'mail_from_name'=>$request->mail_from_name,
         ]);
 
-        if($setting->logo){
+        if($request->logo){
             $setting->update([
                 'logo_path'=>$request->file('logo')->store('settings')
             ]);
@@ -107,7 +107,7 @@ class AdminSettingController extends Controller
 
         }
 
-        if($setting->favicon){
+        if($request->favicon){
             $setting->update([
                 'favicon_path'=>$request->file('favicon')->store('settings')
             ]);
