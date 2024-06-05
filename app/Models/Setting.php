@@ -16,11 +16,11 @@ class Setting extends Model
 
     public function getLogoUrlAttribute()
     {
-        return asset($this->logo_path);
+        return Storage::url($this->logo_path);
     }
 
     public function getFaviconUrlAttribute()
     {
-        return asset($this->favicon_path);
+        return Storage::url($this->favicon_path);
     }
 }
