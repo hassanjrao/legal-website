@@ -73,7 +73,7 @@
 
 
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('media/logo.png') }}" alt="logo" style="width: 100px; height: 100px;">
+                <img src="{{ $settings->logo_url }}" alt="logo" style="width: 100px; height: 100px;">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
