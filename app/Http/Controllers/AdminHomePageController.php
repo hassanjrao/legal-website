@@ -78,14 +78,7 @@ class AdminHomePageController extends Controller
             'hero_description' => 'nullable',
             'services_title' => 'required',
             'services_description' => 'nullable',
-            'footer_description' => 'nullable',
-            'opening_days' => 'nullable',
-            'vacations' => 'nullable',
-            'address' => 'nullable',
-            'phone' => 'nullable',
-            'email' => 'nullable',
-            'copy_right_text' => 'nullable',
-
+           
         ]);
 
         $homePage= \App\Models\HomePage::first();

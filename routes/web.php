@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCaseStudyController;
 use App\Http\Controllers\AdminContactUsUserController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminFooterController;
 use App\Http\Controllers\AdminHomePageController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPracticeAreaController;
@@ -62,6 +63,9 @@ Route::middleware(["auth"])->group(function () {
         Route::get("", [AdminDashboardController::class, "index"])->name("dashboard.index");
 
         Route::resource('home-page', AdminHomePageController::class);
+
+
+        Route::resource('footer', AdminFooterController::class);
 
         Route::resource('appointment', AdminAppointmentController::class);
 

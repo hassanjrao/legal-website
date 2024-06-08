@@ -152,7 +152,7 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="logo"><a href="#">Legalcare <span>A Law Firm Agency</span></a></h2>
+                        <h2 class="logo"><a href="{{ route('home') }}">{{ $homePage->footer_title }}</h2>
                         <p>{{ $homePage->footer_description }}</p>
                         {{-- <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -168,7 +168,7 @@
 
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
-                            <h2 class="ftco-heading-2">Practice Areas</h2>
+                            <h2 class="ftco-heading-2">{{ $practiceAreaPage->title }}</h2>
                             <ul class="list-unstyled">
                                 @foreach ($practiceAreas as $practiceArea)
                                     <li><a href="#" class="py-1 d-block"><span
@@ -184,7 +184,7 @@
                 @endif
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <h2 class="ftco-heading-2">{{ $homePage->have_question_title }}</h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li>
@@ -211,13 +211,13 @@
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Business Hours</h2>
+                        <h2 class="ftco-heading-2">{{ $homePage->business_hours_title }}</h2>
                         <div class="opening-hours">
-                            <h4>Opening Days:</h4>
+                            <h4>{{ $homePage->opening_days_title }}</h4>
                             <p class="pl-3">
                                 {{ $homePage->opening_days }}
                             </p>
-                            <h4>Vacations:</h4>
+                            <h4>{{ $homePage->vacations_title }}</h4>
                             <p class="pl-3">
                                 {{ $homePage->vacations }}
                             </p>

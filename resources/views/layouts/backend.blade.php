@@ -187,6 +187,14 @@
                         </li>
 
                         <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/footer') ? ' active' : '' }}"
+                                href="{{ route('admin.footer.index') }}">
+                                <i class="nav-main-link-icon si si-cursor"></i>
+                                <span class="nav-main-link-name">Footer</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/appointment') ? ' active' : '' }}"
                                 href="{{ route('admin.appointment.index') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>

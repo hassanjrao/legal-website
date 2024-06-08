@@ -165,136 +165,13 @@
 
 
 
-                        <div class="row mb-4">
-
-
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <?php
-                                $value = old('footer_description', $homePage ? $homePage->footer_description : null);
-
-                                ?>
-                                <label class="form-label" for="label">Footer Description <span class="text-danger">*</span></label>
-
-                                <textarea required class="form-control" id="footer_description" name="footer_description"
-                                    placeholder="Enter Footer Description">{{ $value }}</textarea>
-
-                                @error('footer_description')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                        </div>
-
-                        <div class="row mb-4">
-
-
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <?php
-                                $value = old('opening_days', $homePage ? $homePage->opening_days : null);
-
-                                ?>
-                                <label class="form-label" for="label">Opening Days <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="opening_days" name="opening_days" placeholder="Enter Opening Days">
-                                @error('opening_days')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <?php
-                                $value = old('vacations', $homePage ? $homePage->vacations : null);
-
-                                ?>
-                                <label class="form-label" for="label">Vacations <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="vacations" name="vacations" placeholder="Enter Vacations">
-                                @error('vacations')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
 
 
 
-                        </div>
-
-                        <div class="row mb-4">
 
 
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                <?php
-                                $value = old('address', $homePage ? $homePage->address : null);
 
-                                ?>
-                                <label class="form-label" for="label">Address <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="address" name="address" placeholder="Enter address">
-                                @error('address')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-12">
-                                <?php
-                                $value = old('phone', $homePage ? $homePage->phone : null);
-
-                                ?>
-                                <label class="form-label" for="label">phone <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="phone" name="phone" placeholder="Enter phone">
-                                @error('phone')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <?php
-                                $value = old('email', $homePage ? $homePage->email : null);
-
-                                ?>
-                                <label class="form-label" for="label">Email <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="email" name="email" placeholder="Enter email">
-                                @error('email')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                        </div>
-
-                        <div class="row mb-4">
-
-
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <?php
-                                $value = old('copy_right_text', $homePage ? $homePage->copy_right_text : null);
-
-                                ?>
-                                <label class="form-label" for="label">Copy Right Text <span class="text-danger">*</span></label>
-                                <input required type="text" value="{{ $value }}" class="form-control"
-                                    id="copy_right_text" name="copy_right_text" placeholder="Enter Copy Right Text">
-                                @error('copy_right_text')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-
-                        </div>
+                     
 
 
 
